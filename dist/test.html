@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ding-3D</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            background: green;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .child {
+            padding: 30px;
+            border: 1px solid yellow;
+            background: #ccc;
+            align-self: center;
+            perspective: 1000px;
+            /*perspective-origin: 0 0;*/
+        }
+        .img {
+            width: 450px;
+            height: 350px;
+            border: 1px solid darkred;
+            background: #ccc;
+            font-size: 30px;
+            text-align: center;
+            /*transform: translateZ(-10px) rotateX(0deg) rotateY(0deg);*/
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="child">
+            <div class="img">hello
+            </div>
+        </div>   
+    </div>
+    <script>
+        let child = document.querySelector('.child')
+        let img = document.querySelector('.img')
+        child.onmousemove = function(e){
+            //console.log(e.clientX,e.clientY)  得到鼠标距离视口（浏览器显示内容窗口）的x，y坐标
+            console.log('-----------')
+            let xChild = child.getBoundingClientRect().left   //获取元素距离视口的x坐标
+            let yChild = child.getBoundingClientRect().top
+            let childWidth = child.getBoundingClientRect().width  //获取元素的宽
+            let childHeight = child.getBoundingClientRect().height  //获取元素的高  不带单位
+            
+            let xChildCenter = xChild + childWidth /2       //获取元素的中心坐标x
+            let yChildCenter = yChild + childHeight /2   
+
+            let xDiff = e.clientX - xChildCenter   //鼠标到中心的距离
+            let yDiff = e.clientY - yChildCenter
+            let xpencent = xDiff / childWidth
+            let ypencent = yDiff / childHeight
+            img.style.transform = `translateZ(-10px) rotateX(${-ypencent*15}deg) rotateY(${xpencent*15}deg)`
+        } 
+    </script>
+</body>
+</html>

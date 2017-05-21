@@ -1,0 +1,121 @@
+/* Vue of style */
+[v-cloak] {
+      display: none;
+    }
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,html {
+    width: 100vw;
+    height: 100vh;
+}
+#app {
+    height: 100vh;
+}
+#app .wrap {
+    color: white;
+    max-width: 500px;
+    border: 2px solid #ccc;
+    padding: 50px 30px;
+    padding-bottom: 85px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px 2px rgba(65,143,252,0.9) inset, 0px 0px 10px 2px rgba(65,143,252,0.9);
+}
+#signInAndSignUp {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*transform: translateZ(-10px) rotateX(0deg) rotateY(0deg);  3D */
+}
+#signInAndSignUp {
+    background-image: url(galaxy.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.wrap .tipMessage {
+    text-align: center;
+    line-height: 20px;
+    height: 20px;
+    margin-top: 48px;
+}
+.wrap>div:first-child{
+    display: flex;
+    justify-content: space-around;
+}
+.wrap>div:first-child>label {
+    cursor: pointer;
+    padding:10px 30px;
+    line-height: 20px;
+}
+#signInAndSignUp .signUp,
+#signInAndSignUp .login {
+    margin-top: 40px;
+}
+#signInAndSignUp .formRow {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    color: indigo;
+}
+#signInAndSignUp .formRow input {
+    border: none;
+    border-bottom: 1px solid #e3aaa7;
+    outline:medium;
+    font-size: 16px;
+    background: none;
+    color: white;
+    box-shadow: 0 1px 10px 1px;
+}
+#signInAndSignUp .formActions {
+    text-align: center;
+}
+#signInAndSignUp .formActions input {
+    margin-top: 60px;
+    padding: 5px 35px;
+    line-height: 16px;
+    font-size: 16px;
+    background: repeating-linear-gradient(-45deg, #fb3, #58a 5px);
+}
+
+/* logined */
+.newTask {
+    margin-top: 20px;
+}
+#todo>p {
+    /* float: right; */
+    margin: 0px 21px;
+    text-align: right;
+}
+#todo {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: lightyellow;
+}
+.todo>li {
+    margin: 10px 18px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.textTitle {
+    display: inline-block;
+    max-width: 65vw;
+    vertical-align: top;
+}
+.todo>li>div:last-of-type {
+    border: 1px solid #ccc;
+    padding: 0 4px;
+    float: right;
+    margin-left: 14px;
+    cursor: pointer;
+}
+.todo>li>span {
+    background-color: lightgoldenrodyellow;
+    float: right;
+    margin-left: 20px;
+}

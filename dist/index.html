@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <section id="signInAndSignUp" v-if="!currentUser">
+      <div class="wrap">
+      <div>
+        <label class="active" for="signUp">
+          <input type="radio" name="type" v-model="actionType" value="signUp" @click="tipMessageEvent" id="signUp">
+          注册</label>
+        <label for="login">
+          <input type="radio" name="type" v-model="actionType" value="login" @click="tipMessageEvent" id="login">
+          登录</label>
+      </div>
+      <div class="tipMessage">{{tipMessage}}</div>
+      <div class="signUp" v-if="actionType==='signUp'">
+         <form @submit.prevent=signUp>
+          <div class="formRow">
+            <label for="Username">用户名：<input v-model="formData.username" type="text" id="Username"></label>
+          </div>
+          <div class="formRow">
+            <label for="Password">密&nbsp;&nbsp;&nbsp;码：<input v-model="formData.password" type="password" id="Password"></label>
+          </div>
+          <div class="formActions">
+            <input type="submit" value="注册">
+          </div>
+        </form>
+      </div>
+      <div class="login" v-if="actionType==='login'">
+        <form @submit.prevent="login">
+          <div class="formRow">
+            <label for="logname">用户名：<input v-model="formData.username" type="text" id="logname"></label>
+          </div>
+          <div class="formRow">
+            <label for="logword">密&nbsp;&nbsp;&nbsp;码：<input v-model="formData.password" type="password" id="logword"></label>
+          </div>
+          <div class="formActions">
+            <input type="submit" value="登录">
+          </div>
+        </form>
+      </div>
+      </div>
+    </section>
+    <section id="todo" v-if="currentUser">
+      <p><button @click="logout">退出账户</button></p>
+      <div class="newTask">
+        <input type="text" v-model="newTodo" @keypress.enter="addTodo" placeholder="添加代办事项" size="30" autofocus>
+      </div>
+      <ol class="todo">
+        <li v-for="todo in todoList">
+          <input type="checkbox" v-model="todo.done">
+          <div class="textTitle">{{todo.title}}</div>
+          <span>{{todo.createdAt}}</span>
+          <div @click="removeTodo(todo)" title="删除事项">×</div>
+          <span v-if="todo.done">已完成</span>
+          <span v-else>待完成</span>
+        </li>
+      </ol>
+    </section>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+</html>
