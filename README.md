@@ -1,8 +1,8 @@
 #### 预览：  
-https://dingchaofa.github.io/webpack/task5/dist/
+https://dingchaofa.github.io/Todo/dist/
 
 #### 源码：
-https://github.com/dingchaofa/webpack/tree/master/task5/src/
+https://github.com/dingchaofa/Todo/tree/master/dist  
 注：由于使用webpack压缩过*.js文件，app模块即是源码，又是入口文件。
 
 
